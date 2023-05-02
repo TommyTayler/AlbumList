@@ -34,7 +34,9 @@ class ThumbnailViewController: UIViewController, StoryboardInitializable {
 extension ThumbnailViewController {
     func fetchPhotos () {
         // 1
-        let request = AF.request("https://via.placeholder.com/600/92c952")
+        print("myIndex = \(myIndex)")
+        
+        let request = AF.request("https://via.placeholder.com/600/92c952") // update this to use the table view cells index thumbnail rather than hard code
         // 2
         request.responseImage { response in
             debugPrint(response)

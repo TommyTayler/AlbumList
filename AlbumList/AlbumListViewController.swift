@@ -72,7 +72,10 @@ class AlbumListViewController: UITableViewController, StoryboardInitializable {
 //
 //    }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
         myIndex = indexPath.row
         albumTitle = albums[indexPath.row].title
         albumId = albums[indexPath.row].id
