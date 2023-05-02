@@ -27,50 +27,6 @@ class ThumbnailViewController: UIViewController, StoryboardInitializable {
         titleLabel.text = "Album Name: \((albumTitle))"
         descLabel.text = "DescLabel"
     }
-    
-    //MARK: - PHOTOS API call
-    
-    private func APIPhotos() {
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/photos") else {
-            // TODO: Error handling - not valid URL
-            return
-        }
-
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-
-        let session = URLSession.shared
-        let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
-            guard let httpResponse = response as? HTTPURLResponse else {
-                // TODO: Error handling - not valid response
-                return
-            }
-            
-            switch httpResponse.statusCode {
-            case 200:
-                guard let data = data else {
-                    // TODO: Error handling
-                    return
-                }
-                
-                let jsonDecoder = JSONDecoder()
-                let photoResponseModel: [Photos]? = try? jsonDecoder.decode([Photos].self, from: data)
-                print(photoResponseModel)
-                self.photos = photoResponseModel ?? []
-//                DispatchQueue.main.async {
-//                    completed()
-//                }
-                print("Photo API Called")
-            default:
-                // TODO: Error handling - invalid response
-                return
-            }
-        })
-
-        task.resume()
-    }
-
 }
 
 // MARK: - Extension
