@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SUd-q2-AMe">
-                                <rect key="frame" x="76" y="187" width="240" height="250"/>
+                                <rect key="frame" x="76" y="200" width="240" height="250"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3M-jG-bPH">
                                 <rect key="frame" x="76" y="103" width="240" height="60"/>
@@ -72,8 +72,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIr-sT-fQM">
-                                <rect key="frame" x="76" y="477" width="240" height="100"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIr-sT-fQM">
+                                <rect key="frame" x="76" y="502.99999999999994" width="240" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -85,8 +85,8 @@
                             <constraint firstItem="gsV-Ay-nIN" firstAttribute="trailing" secondItem="X3M-jG-bPH" secondAttribute="trailing" constant="77" id="7e4-c8-m9V"/>
                             <constraint firstItem="SUd-q2-AMe" firstAttribute="leading" secondItem="gsV-Ay-nIN" secondAttribute="leading" constant="76" id="FEg-Wh-Qwr"/>
                             <constraint firstItem="gsV-Ay-nIN" firstAttribute="trailing" secondItem="EIr-sT-fQM" secondAttribute="trailing" constant="77" id="Joq-b0-3ln"/>
-                            <constraint firstItem="EIr-sT-fQM" firstAttribute="top" secondItem="SUd-q2-AMe" secondAttribute="bottom" constant="40" id="MCf-RB-whQ"/>
                             <constraint firstItem="SUd-q2-AMe" firstAttribute="top" secondItem="X3M-jG-bPH" secondAttribute="bottom" constant="24" id="Mny-B1-H3I"/>
+                            <constraint firstItem="EIr-sT-fQM" firstAttribute="top" secondItem="gsV-Ay-nIN" secondAttribute="top" constant="400" id="PEW-PP-mkj"/>
                             <constraint firstItem="X3M-jG-bPH" firstAttribute="top" secondItem="gsV-Ay-nIN" secondAttribute="top" id="R9q-Ja-BkQ"/>
                             <constraint firstItem="EIr-sT-fQM" firstAttribute="leading" secondItem="gsV-Ay-nIN" secondAttribute="leading" constant="76" id="gOV-by-GGJ"/>
                             <constraint firstItem="gsV-Ay-nIN" firstAttribute="trailing" secondItem="SUd-q2-AMe" secondAttribute="trailing" constant="77" id="huY-4l-PVv"/>
