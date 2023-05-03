@@ -79,15 +79,11 @@ class AlbumListViewController: UITableViewController, StoryboardInitializable {
         myIndex = indexPath.row
         albumTitle = albums[indexPath.row].title
         albumId = albums[indexPath.row].id
-        print("Index: \((myIndex))")
-        print("Album Title: \((albumTitle))")
-        print("Album Id: \((albumId))")
-       
-        
-        
+//        print("Index: \((myIndex))")
+//        print("Album Title: \((albumTitle))")
+//        print("Album Id: \((albumId))")
+
         performSegue(withIdentifier: "segue", sender: self)
-        
-        
     }
     
     //MARK: - Albums API call
@@ -115,11 +111,9 @@ class AlbumListViewController: UITableViewController, StoryboardInitializable {
                     // TODO: Error handling
                     return
                 }
-                
                 let jsonDecoder = JSONDecoder()
                 let responseModel = try? jsonDecoder.decode([Album].self, from: data)
-                //print(responseModel)
-                self.albums = responseModel! // Ask Haydon to explain this as I don't understand
+                self.albums = responseModel!
                 
                 DispatchQueue.main.async {
                     completed()
@@ -162,8 +156,7 @@ class AlbumListViewController: UITableViewController, StoryboardInitializable {
                 
                 let jsonDecoder = JSONDecoder()
                 let userResponseModel: [User]? = try? jsonDecoder.decode([User].self, from: data)
-                print(userResponseModel)
-                self.users = userResponseModel ?? [] // Ask Haydon to explain the !, aviod ! everywhere
+                self.users = userResponseModel ?? []
 //                DispatchQueue.main.async {
 //                    completed()
 //                }
