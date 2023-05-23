@@ -1,8 +1,8 @@
 //
-//  ThumbnailViewController.swift
+//  ThumbnailViewModel.swift
 //  AlbumList
 //
-//  Created by tommy tayler on 28/01/23.
+//  Created by tommy tayler on 15/05/23.
 //
 
 import Foundation
@@ -10,24 +10,33 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class ThumbnailViewController: UIViewController, StoryboardInitializable {
+class ThumbnailViewModel {
     
-    @IBOutlet weak var descLabel: UILabel!
-    @IBOutlet weak var thumbnailImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
+    var albumId = 0
+    var albumTitle = ""
+    var myId = 0
+    var photos = [Photo]()
+
+
     
-    var photos = [Photos]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        APIPhotos()
-        titleLabel.text = "Album Name: \((albumTitle))"
-        descLabel.text = "DescLabel"
+    //MARK: - Helper functions
+    
+    public func updateThumbnailDetails(albumTitle: String, albumId: Int, myId: Int) { // Index(change name), album id
+        self.albumTitle = "Album title: \(albumTitle.capitalized)"
+        self.albumId = albumId
+        self.myId = myId
     }
     
-    //MARK: - PHOTOS API call
+    //MARK: - PHOTO API call
     
-    private func APIPhotos() {
+    public func APIPhotos(UIImageView: UIImageView) {
+        
+        let UIImageView = UIImageView // is this needed, I'm not sure I'm doing this right
+        var thumbnail = ""
+        var thumbnailsPhoto = ""
+        
+        
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/photos") else {
             // TODO: Error handling - not valid URL
             return
@@ -52,17 +61,11 @@ class ThumbnailViewController: UIViewController, StoryboardInitializable {
                 }
                 
                 let jsonDecoder = JSONDecoder()
-                let photosResponseModel: [Photos]? = try? jsonDecoder.decode([Photos].self, from: data)
+                let photosResponseModel: [Photo]? = try? jsonDecoder.decode([Photo].self, from: data)
                 self.photos = photosResponseModel ?? []
-//                DispatchQueue.main.async {
-//                    completed()
-//                }
-                
-                // TODO: - Remove variables from func and pass them in when called
-                let photo = self.photos[myIndex]
-                var thumbnail = ""
-                var thumbnailsPhoto = ""
-         
+                _ = self.photos[self.myId]
+                let albumId = self.albumId
+
                 // Loops through user.id and compares
                 for photo in self.photos {
                     if albumId == photo.id {
@@ -71,7 +74,7 @@ class ThumbnailViewController: UIViewController, StoryboardInitializable {
                         break
                     }
                 }
-                self.fetchPhotos(url: thumbnailsPhoto)
+                self.fetchPhotos(url: thumbnailsPhoto, UIImageView: UIImageView)
                 
                 print("Photo API Called")
             default:
@@ -86,26 +89,17 @@ class ThumbnailViewController: UIViewController, StoryboardInitializable {
 
 // MARK: - Extension
 
-extension ThumbnailViewController {
-    func fetchPhotos (url: String) {
+extension ThumbnailViewModel {
+    func fetchPhotos (url: String, UIImageView: UIImageView) {
+        let thumbnailImageView = UIImageView
         // 1
         let request = AF.request(url)
         // 2
         request.responseImage { response in
             if case .success(let photoImage) = response.result {
                 print("image downloaded: \(photoImage)")
-                self.thumbnailImageView.image = photoImage
+                thumbnailImageView.image = photoImage
             }
         }
     }
-}
-
-//MARK: - Structs
-
-public struct Photos: Codable {
-    let albumId: Int
-    let id: Int
-    let title: String
-    let url: String
-    let thumbnailUrl: String
 }

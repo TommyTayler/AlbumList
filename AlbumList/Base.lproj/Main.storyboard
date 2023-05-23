@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +10,7 @@
         <!--Albums-->
         <scene sceneID="whN-cm-a89">
             <objects>
-                <tableViewController title="Albums" id="ysh-Jk-xHS" customClass="AlbumListViewController" customModule="AlbumList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AlbumListViewController" title="Albums" id="ysh-Jk-xHS" customClass="AlbumListViewController" customModule="AlbumList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="cxt-B3-t5h">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,67 +42,11 @@
                     <navigationItem key="navigationItem" title="Albums" id="uFg-Uk-Bp3"/>
                     <connections>
                         <outlet property="albumTableView" destination="cxt-B3-t5h" id="2In-D1-FBg"/>
-                        <segue destination="QuA-qE-jXi" kind="show" id="A32-oJ-7xR"/>
-                        <segue destination="QuA-qE-jXi" kind="show" identifier="segue" id="8JX-M4-hkF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6c-YI-Gjq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="828.24427480916029" y="-91.549295774647888"/>
-        </scene>
-        <!--Thumbnail View Controller-->
-        <scene sceneID="eB0-Zr-mz2">
-            <objects>
-                <viewController storyboardIdentifier="ThumbnailViewController" id="QuA-qE-jXi" customClass="ThumbnailViewController" customModule="AlbumList" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ErE-d9-S5b">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SUd-q2-AMe">
-                                <rect key="frame" x="76" y="200" width="240" height="250"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3M-jG-bPH">
-                                <rect key="frame" x="76" y="103" width="240" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="QWq-X9-lO7"/>
-                                    <constraint firstAttribute="height" constant="60" id="TEd-tZ-E2g"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIr-sT-fQM">
-                                <rect key="frame" x="76" y="502.99999999999994" width="240" height="20.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="gsV-Ay-nIN"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="gsV-Ay-nIN" firstAttribute="trailing" secondItem="X3M-jG-bPH" secondAttribute="trailing" constant="77" id="7e4-c8-m9V"/>
-                            <constraint firstItem="SUd-q2-AMe" firstAttribute="leading" secondItem="gsV-Ay-nIN" secondAttribute="leading" constant="76" id="FEg-Wh-Qwr"/>
-                            <constraint firstItem="gsV-Ay-nIN" firstAttribute="trailing" secondItem="EIr-sT-fQM" secondAttribute="trailing" constant="77" id="Joq-b0-3ln"/>
-                            <constraint firstItem="SUd-q2-AMe" firstAttribute="top" secondItem="X3M-jG-bPH" secondAttribute="bottom" constant="24" id="Mny-B1-H3I"/>
-                            <constraint firstItem="EIr-sT-fQM" firstAttribute="top" secondItem="gsV-Ay-nIN" secondAttribute="top" constant="400" id="PEW-PP-mkj"/>
-                            <constraint firstItem="X3M-jG-bPH" firstAttribute="top" secondItem="gsV-Ay-nIN" secondAttribute="top" id="R9q-Ja-BkQ"/>
-                            <constraint firstItem="EIr-sT-fQM" firstAttribute="leading" secondItem="gsV-Ay-nIN" secondAttribute="leading" constant="76" id="gOV-by-GGJ"/>
-                            <constraint firstItem="gsV-Ay-nIN" firstAttribute="trailing" secondItem="SUd-q2-AMe" secondAttribute="trailing" constant="77" id="huY-4l-PVv"/>
-                            <constraint firstItem="SUd-q2-AMe" firstAttribute="top" secondItem="X3M-jG-bPH" secondAttribute="bottom" constant="24" id="iFW-OF-hZK"/>
-                            <constraint firstItem="X3M-jG-bPH" firstAttribute="leading" secondItem="gsV-Ay-nIN" secondAttribute="leading" constant="76" id="kwa-J0-zmd"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="vcO-TP-Vpw"/>
-                    <connections>
-                        <outlet property="descLabel" destination="EIr-sT-fQM" id="tAV-Pu-wk9"/>
-                        <outlet property="thumbnailImageView" destination="SUd-q2-AMe" id="EC5-Ns-MKb"/>
-                        <outlet property="titleLabel" destination="X3M-jG-bPH" id="P2a-t8-wN5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DeR-Wp-xxr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1655.7251908396945" y="-92.253521126760575"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eiK-0W-u1m">
@@ -124,9 +67,6 @@
             <point key="canvasLocation" x="-98.473282442748086" y="-91.549295774647888"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="8JX-M4-hkF"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
